@@ -1,0 +1,363 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+
+#unique-container {
+  max-width: 820px;
+  /*Corregido: Eliminada la declaración duplicada de 'width';*/
+  height: 340px;
+  display: flex;
+  gap: 10px;
+  margin-inline: auto;
+}
+
+/* Estilos individuales para cada tarjeta, usando el ID */
+
+#unique-card-1, #unique-card-2, #unique-card-3, #unique-card-4, #unique-card-5 {
+  min-width: 70px;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  flex-grow: 1;
+  cursor: pointer;
+  position: relative;
+  transition: flex-grow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Aplicamos los efectos de hover a cada tarjeta usando su ID */
+
+#unique-card-1:hover, #unique-card-2:hover, #unique-card-3:hover, #unique-card-4:hover, #unique-card-5:hover {
+  flex-grow: 7;
+}
+
+/* Estilos para la imagen de fondo */
+
+#unique-bg-1, #unique-bg-2, #unique-bg-3, #unique-bg-4, #unique-bg-5 {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.4);
+  z-index: -1;
+  transition: filter 0.35s ease;
+}
+
+/* Estilos para cuando se hace hover en la tarjeta */
+
+#unique-card-1:hover > #unique-bg-1, #unique-card-2:hover > #unique-bg-2, #unique-card-3:hover > #unique-bg-3, #unique-card-4:hover > #unique-bg-4, #unique-card-5:hover > #unique-bg-5 {
+  filter: brightness(1);
+}
+
+/* Estilos para el contenido de la tarjeta */
+
+#unique-content-1, #unique-content-2, #unique-content-3, #unique-content-4, #unique-content-5 {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 20px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  z-index: 10;
+}
+
+/* Aplicamos los efectos de hover a cada contenido de la tarjeta */
+
+#unique-card-1:hover > #unique-content-1, #unique-card-2:hover > #unique-content-2, #unique-card-3:hover > #unique-content-3, #unique-card-4:hover > #unique-content-4, #unique-card-5:hover > #unique-content-5 {
+  left: 20px;
+  right: 20px;
+  bottom: 40px;
+}
+
+/* ... */
+
+/* Añadir estilos adicionales para el resto de elementos según sea necesario */
+
+.wrapper {
+  display: inline-flex;
+  list-style: none;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: #000000;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #ffffff;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.facebook {
+  --color: #1877f2;
+}
+.twitter {
+  --color: #1da1f2;
+}
+.instagram {
+  --color: #e4405f;
+}
+.github {
+  --color: #333333;
+}
+.youtube {
+  --color: #cd201f;
+}
+
+.icon:hover,
+.icon:hover .tooltip,
+.icon:hover .tooltip::before {
+  background: var(--color);
+  color: white;
+}
+
+/*Codigo Footer*/
+.bs-icon {
+  --bs-icon-size: .75rem;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--bs-icon-size);
+  width: calc(var(--bs-icon-size) * 2);
+  height: calc(var(--bs-icon-size) * 2);
+  color: var(--bs-primary);
+}
+
+.bs-icon-xs {
+  --bs-icon-size: 1rem;
+  width: calc(var(--bs-icon-size) * 1.5);
+  height: calc(var(--bs-icon-size) * 1.5);
+}
+
+.bs-icon-sm {
+  --bs-icon-size: 1rem;
+}
+
+.bs-icon-md {
+  --bs-icon-size: 1.5rem;
+}
+
+.bs-icon-lg {
+  --bs-icon-size: 2rem;
+}
+
+.bs-icon-xl {
+  --bs-icon-size: 2.5rem;
+}
+
+.bs-icon.bs-icon-primary {
+  color: var(--bs-white);
+  background: var(--bs-primary);
+}
+
+.bs-icon.bs-icon-primary-light {
+  color: var(--bs-primary);
+  background: rgba(var(--bs-primary-rgb), .2);
+}
+
+.bs-icon.bs-icon-semi-white {
+  color: var(--bs-primary);
+  background: rgba(255, 255, 255, .5);
+}
+
+.bs-icon.bs-icon-rounded {
+  border-radius: .5rem;
+}
+
+.bs-icon.bs-icon-circle {
+  border-radius: 50%;
+}
+
+footer {
+  margin-top: auto; /* Esto asegura que el footer se empuje hacia la parte inferior */
+}
+
+/*Codigo Navbar*/
+
+
+
+#transmenu {
+  -moz-transition: background 0.6s ease;
+  -webkit-transition: background 0.6s ease;
+  transition: background 0.6s ease;
+}
+
+#transmenu.transparency {
+  background: #F1F1F1 !important;
+  box-shadow: none;
+  border-color: #F1F1F1 !important;
+}
+
+#transmenu .navbar-brand {
+  -moz-transition: all 0.6s ease;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+}
+
+#transmenu.transparency .navbar-brand {
+  padding-top: 0.5px;
+  padding-bottom: 0.5px;
+  color: #fff !important;
+  border: none;
+}
+
+#transmenu.transparency .nav-link, #transmenu.transparency .nav-link.active, #transmenu.transparency .nav-link:focus {
+  color: #fff;
+  border: none;
+  opacity: 1;
+}
+
+#transmenu.transparency .nav-link:hover {
+  color: #fff;
+  opacity: .7;
+}
+
+#transmenu .navbar-toggler {
+  position: relative;
+  height: 35px;
+  margin-right: -.75rem;
+  border: none;
+}
+
+#transmenu .navbar-toggler:focus, #transmenu .navbar-toggler:active {
+  outline: 0;
+}
+
+#transmenu .navbar-toggler span {
+  display: block;
+  background-color: #6f6f6e;
+  height: 2px;
+  width: 25px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  position: relative;
+  left: 0;
+  opacity: 1;
+}
+
+#transmenu.transparency .navbar-toggler span {
+  background: #fff;
+}
+
+#transmenu .navbar-toggler span:nth-child(1), #transmenu .navbar-toggler span:nth-child(3) {
+  -webkit-transition: transform .35s ease-in-out;
+  -moz-transition: transform .35s ease-in-out;
+  transition: transform .35s ease-in-out;
+}
+
+#transmenu .navbar-toggler:not(.collapsed) span:nth-child(1) {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  transform: rotate(135deg);
+  opacity: 0.9;
+}
+
+#transmenu .navbar-toggler:not(.collapsed) span:nth-child(2) {
+  height: 12px;
+  visibility: hidden;
+  background-color: transparent;
+}
+
+#transmenu .navbar-toggler:not(.collapsed) span:nth-child(3) {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+  opacity: 0.9;
+}
+
+#Presentacion {
+  background-image: url("../../assets/img/backxd.png");
+  background-color: rgba(0, 0, 0, 0.007);
+  background-size: cover;
+}
+
+.card {
+  margin: 15px;
+  /*border-radius: 20px;*/
+}
+
+#Mem {
+  background-color: rgba(60,196,205,0.15);
+  border-radius: 20px;
+}
+
+.card {
+  background-color: rgba(60,193,202,0.5);
+}
+
